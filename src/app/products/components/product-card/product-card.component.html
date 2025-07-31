@@ -2,8 +2,11 @@
   <figure>
     <img [src]="product().images | productImage" [alt]="product().title" />
   </figure>
-  <div class="card-body">
-    <h2 class="card-title font-montserrat text-secondary">
+  <div class="card-body h-[200px]">
+    <h2
+      class="card-title font-montserrat text-secondary hover:text-blue-900 hover:cursor-pointer"
+      [routerLink]="['/product', product().slug]"
+    >
       {{ product().title }}
     </h2>
     <p>{{ product().description | slice : 0 : 70 }}...</p>
