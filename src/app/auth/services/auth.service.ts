@@ -6,7 +6,7 @@ import { User } from '@auth/interfaces/user.interface';
 import { catchError, map, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-type AuthStatus = 'checking' | 'authenticated' | 'non-authenticated';
+type AuthStatus = 'checking' | 'authenticated' | 'not-authenticated';
 const baseUrl = environment.baseUrl;
 
 @Injectable({ providedIn: 'root' })
@@ -28,7 +28,7 @@ export class AuthService {
       return 'authenticated';
     }
 
-    return 'non-authenticated';
+    return 'not-authenticated';
   });
 
   user = computed<User | null>(() => this._user());
@@ -68,7 +68,7 @@ export class AuthService {
   logOut() {
     this._user.set(null);
     this._token.set(null);
-    this._authStatus.set('non-authenticated');
+    this._authStatus.set('not-authenticated');
 
     localStorage.removeItem('token');
   }
@@ -78,7 +78,7 @@ export class AuthService {
     this._authStatus.set('authenticated');
     this._token.set(token);
 
-    localStorage.setItem('token', token);
+    localStorage.setItem('item', token);
     return true;
   }
 
