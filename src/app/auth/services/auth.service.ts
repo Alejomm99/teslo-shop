@@ -46,6 +46,23 @@ export class AuthService {
       );
   }
 
+  singIn(
+    fullName: string,
+    email: string,
+    password: string
+  ): Observable<boolean> {
+    return this.http
+      .post<AuthResponse>(`${baseUrl}/auth/register`, {
+        fullName,
+        email,
+        password,
+      })
+      .pipe(
+        map(() => true),
+        catchError((error: any) => of(false))
+      );
+  }
+
   checkStatus(): Observable<boolean> {
     const token = localStorage.getItem('token');
     if (!token) {
