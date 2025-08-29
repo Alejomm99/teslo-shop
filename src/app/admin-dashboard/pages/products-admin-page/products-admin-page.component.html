@@ -5,5 +5,8 @@
 </h3>
 
 <div class="divider"></div>
-
-<product-table [products]="[]" />
+<app-pagination
+  [pages]="productsResource.value()?.pages ?? 0"
+  [currentPage]="paginationService.currentPage()"
+/>
+<product-table [products]="productsResource.value()!.products" />

@@ -37,10 +37,7 @@ export class ProductsService {
           gender,
         },
       })
-      .pipe(
-        tap((resp) => console.log(resp)),
-        tap((resp) => this.productsCache.set(key, resp))
-      );
+      .pipe(tap((resp) => this.productsCache.set(key, resp)));
   }
 
   getProductByIdSlug(idSlug: string): Observable<Product> {
