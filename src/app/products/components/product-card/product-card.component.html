@@ -5,7 +5,7 @@
   <div class="card-body h-[200px]">
     <h2
       class="card-title font-montserrat text-secondary hover:text-blue-900 hover:cursor-pointer"
-      [routerLink]="['/product', product().slug]"
+      [routerLink]="['/product', product().id]"
     >
       {{ product().title }}
     </h2>
@@ -13,7 +13,7 @@
     <div class="card-actions justify-end">
       <a
         class="text-secondary text-sm font-bold font-montserrat hover:text-blue-900"
-        [routerLink]="['/product', product().slug]"
+        [routerLink]="['/product', product().id]"
         >Ver producto</a
       >
     </div>

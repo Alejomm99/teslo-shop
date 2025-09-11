@@ -10,14 +10,14 @@ import { ProductsService } from '@products/services/products.service';
   templateUrl: './product-page.component.html',
 })
 export class ProductPageComponent {
-  productIdSlug = inject(ActivatedRoute).snapshot.params['idSlug'];
+  productId = inject(ActivatedRoute).snapshot.params['id'];
 
   productsService = inject(ProductsService);
 
   productResource = rxResource({
-    request: () => ({ idSlug: this.productIdSlug }),
+    request: () => ({ id: this.productId }),
     loader: ({ request }) => {
-      return this.productsService.getProductByIdSlug(request.idSlug);
+      return this.productsService.getProductById(request.id);
     },
   });
 }
