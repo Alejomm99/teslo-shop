@@ -9,6 +9,13 @@
         class="w-full object-cover animate-fadeIn"
       />
     </div>
+    }@empty {
+    <div class="swiper-slide">
+      <img
+        [src]="null | productImage"
+        class="w-full object-cover animate-fadeIn"
+      />
+    </div>
     }
   </div>
   <!-- If we need pagination -->
