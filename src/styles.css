@@ -21,3 +21,23 @@
 @plugin "daisyui" {
   themes: night --default;
 }
+
+:root[data-theme="tokyo"] {
+  --background: red;
+  &.dark {
+    --background: blue;
+  }
+}
+
+:root[data-theme="dracula"] {
+  --background: yellow;
+  &.dark {
+    --background: green;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --backgroud: blue;
+  }
+}
